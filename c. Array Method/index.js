@@ -69,7 +69,7 @@ const orders2 = [
         status: "completed"
     }
 ];
-// Calculate total revenue and find best-selling products
+// Calculate total revenue 
 const totalRevenue2 = orders2.reduce((acc, order) => {
     const totalOrder = order.items.reduce((itemSum, item) => {
         const total = item.price * item.quantity
@@ -79,3 +79,34 @@ const totalRevenue2 = orders2.reduce((acc, order) => {
     return acc + totalOrder
 }, 0)
 console.log(totalRevenue2)
+
+// Find best-selling products
+const productSales = orders2.reduce((acc, order) => {
+    order.items.forEach(item => {
+        acc[item.productId] = (acc[item.productId] || 0) + item.quantity;
+    });
+    return acc;
+}, {});
+console.log(productSales)
+
+
+
+
+// 5. Social Media Post Analytics:
+const posts = [
+    { id: 1, content: "Hello World", likes: 10, comments: 2, shares: 3, date: "2024-01-15" },
+    { id: 2, content: "Great news!", likes: 25, comments: 5, shares: 8, date: "2024-01-15" },
+    { id: 3, content: "JavaScript tips", likes: 15, comments: 4, shares: 2, date: "2024-01-16" }
+];
+// Generate engagement report showing most popular posts and daily engagement stats
+
+
+
+
+// 6. Student Grade Analysis::
+const studentGrades = [
+    { studentId: 1, name: "John", grades: [85, 90, 92, 88, 87] },
+    { studentId: 2, name: "Jane", grades: [92, 95, 89, 91, 90] },
+    { studentId: 3, name: "Bob", grades: [78, 85, 80, 82, 79] }
+];
+// Calculate average grades, identify top performers, and find students needing improvement
